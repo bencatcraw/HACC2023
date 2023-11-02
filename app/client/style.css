@@ -3,8 +3,8 @@
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: #3D5A80;
-  --matr-navbar-bg-rgb: 61, 90, 128;
+  --matr-navbar-bg: #ECECEC;
+  --matr-navbar-bg-rgb: 236, 236, 236;
 }
 
 /* Change bootstrap variable values.
@@ -12,8 +12,6 @@
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
-/*  background: fixed center url("https://media.architecturaldigest.com/photos/5769a3e4fd4057dc7011364e/16:9/w_3200,h_1800,c_limit/waikiki-hawaii-weekend-guide-01.jpg");
-  background-size: cover; */
 }
 
 /* Set the alert background on the signin and signup pages. */
@@ -27,8 +25,4 @@ body {
   color: var(--bs-dark);
   padding-top: 10px;
   padding-bottom: 20px;
-}
-
-.all-facilities-page {
-  background-color: lightblue;
 }
