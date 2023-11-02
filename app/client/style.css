@@ -4,7 +4,7 @@
 /* Set up some CSS variables to theme the application. */
 :root {
   --matr-navbar-bg: #ECECEC;
-  --matr-navbar-bg-rgb: 236, 236, 236;
+  --matr-navbar-bg-rgb: 61, 90, 128;
 }
 
 /* Change bootstrap variable values.
@@ -12,8 +12,19 @@
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
+  background-image: url("https://assets.editorial.aetnd.com/uploads/2009/12/gettyimages-1352563243.jpg");
+  background-size: cover;
+}
+button{
+  background-color: #98C1D9 !important;
+  border-color: #98C1D9 !important;
+  transform: translate(0%, 150%)
 }
 
+button:hover{
+  background-color: #85B2CD !important;
+  border-color: #85B2CD !important;
+}
 /* Set the alert background on the signin and signup pages. */
 #signin-page .alert-light, #signup-page .alert-light {
   --bs-alert-bg: var(--matr-navbar-bg);
