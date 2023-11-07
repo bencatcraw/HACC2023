@@ -1,32 +1,27 @@
 import React from 'react';
-import { Container, Navbar, NavLink, NavDropdown, Image } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Search } from 'react-bootstrap-icons';
 
 const NavBar = () => (
-
-  <Navbar className="navbarBG" expand="lg">
-    <Container id="navbar-left">
-      <Image src="https://raw.githubusercontent.com/kyesteele/publicImages/main/tyler-logo.png" style={{ width: '75px' }} />
-    </Container>
-    <Container id="navbar-center">
+  <Navbar bg="light" expand="lg">
+    <Container>
       <Navbar.Brand as={NavLink} to="/">
-        <h2>Tyler Hawaii Health Dashboard</h2>
+        <h2 className="text-white">Hawaii Healthcare Dashboard</h2>
       </Navbar.Brand>
-    </Container>
-    <Container id="navbar-right">
-      <NavDropdown className="languageFont" title="Language" id="language-dropdown">
-        <Link className="navLinkFont" to="/">
-          English
-        </Link>
-        <br />
-        <Link className="navLinkFont" to="/es">
-          Spanish
-        </Link>
-        <br />
-        <Link className="navLinkFont" to="/ja">
-          Japanese
-        </Link>
-      </NavDropdown>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto justify-content-start">
+          <Nav.Link id="search-nav" as={NavLink} to="/search">
+            <span className="text-white"><Search /> Search</span>
+          </Nav.Link>
+          <Nav.Link id="all-facilities-page" as={NavLink} to="/facilities"><span className="text-white">All Facilities </span>
+          </Nav.Link>
+        </Nav>
+        <Nav className="justify-content-end">
+          <div id="google_translate_element" />
+        </Nav>
+      </Navbar.Collapse>
     </Container>
   </Navbar>
 );
