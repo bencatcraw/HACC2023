@@ -6,7 +6,7 @@ import NotFound from '../pages/NotFound';
 import NavBar from '../components/NavBar';
 import NotAuthorized from '../pages/NotAuthorized';
 import AllFacilities from '../pages/AllFacilities';
-// import Search from '../pages/Search'; <Route path="/search" element={<Search />} />
+import Search from '../pages/Search';
 
 const App = () => (
   <Router>
@@ -15,6 +15,7 @@ const App = () => (
       <Routes>
         <Route exact path="/" element={<Landing />} />
         <Route path="/home" element={<Landing />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/facilities" element={<AllFacilities />} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
