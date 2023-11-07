@@ -14,6 +14,7 @@ body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
   background-image: url("https://assets.editorial.aetnd.com/uploads/2009/12/gettyimages-1352563243.jpg");
   background-size: cover;
+  top: 0px !important;
 }
 .landing-button{
   background-color: #98C1D9 !important;
@@ -42,3 +43,6 @@ body {
   background-color: lightblue;
 }
 
+body > .skiptranslate {
+  display: none;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Search } from 'react-bootstrap-icons';
 
 const NavBar = () => (
@@ -19,14 +19,7 @@ const NavBar = () => (
           </Nav.Link>
         </Nav>
         <Nav className="justify-content-end">
-          <NavDropdown id="login-dropdown" title="Language">
-            <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
-              Japanese
-            </NavDropdown.Item>
-            <NavDropdown.Item id="login-dropdown-sign-up" as={NavLink} to="/signup">
-              Spanish
-            </NavDropdown.Item>
-          </NavDropdown>
+          <div id="google_translate_element" />
         </Nav>
       </Navbar.Collapse>
     </Container>
