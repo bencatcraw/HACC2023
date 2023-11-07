@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Search } from 'react-bootstrap-icons';
 
 const NavBar = () => (
   <Navbar bg="light" expand="lg">
@@ -11,9 +12,11 @@ const NavBar = () => (
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto justify-content-start">
-          <Nav.Link id="add-stuff-nav" as={NavLink} to="/add">Add Stuff</Nav.Link>
-          <Nav.Link id="list-stuff-nav" as={NavLink} to="/list">List Stuff</Nav.Link>
-          <Nav.Link id="all-facilities-page" as={NavLink} to="/facilities">All Facilities</Nav.Link>
+          <Nav.Link id="search-nav" as={NavLink} to="/search">
+            <span className="text-white"><Search /> Search</span>
+          </Nav.Link>
+          <Nav.Link id="all-facilities-page" as={NavLink} to="/facilities"><span className="text-white">All Facilities </span>
+          </Nav.Link>
         </Nav>
         <Nav className="justify-content-end">
           <NavDropdown id="login-dropdown" title="Language">
