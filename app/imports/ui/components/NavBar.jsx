@@ -16,7 +16,7 @@ const NavBar = () => {
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
-          <h2>meteor-application-template-react</h2>
+          <h2 className="text-white">Hawaii Healthcare Dashboard</h2>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -31,16 +31,12 @@ const NavBar = () => {
           </Nav>
           <Nav className="justify-content-end">
             {currentUser === '' ? (
-              <NavDropdown id="login-dropdown" title="Login">
+              <NavDropdown id="login-dropdown" title="Language">
                 <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
-                  <PersonFill />
-                  Sign
-                  in
+                  Japanese
                 </NavDropdown.Item>
                 <NavDropdown.Item id="login-dropdown-sign-up" as={NavLink} to="/signup">
-                  <PersonPlusFill />
-                  Sign
-                  up
+                  Spanish
                 </NavDropdown.Item>
               </NavDropdown>
             ) : (
