@@ -2,12 +2,11 @@ import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
-import { Meteor } from 'meteor/meteor';
+
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Stuffs } from '../../api/stuff/Stuff';
 
-// Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   name: String,
   quantity: Number,
@@ -20,15 +19,11 @@ const formSchema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-/* Renders the AddStuff page for adding a document. */
 const AddStuff = () => {
-
-  // On submit, insert the data.
   const submit = (data, formRef) => {
     const { name, quantity, condition } = data;
-    const owner = Meteor.user().username;
     Stuffs.collection.insert(
-      { name, quantity, condition, owner },
+      { name, quantity, condition },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -40,7 +35,6 @@ const AddStuff = () => {
     );
   };
 
-  // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
   return (
     <Container className="py-3">
