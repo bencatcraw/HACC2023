@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Card, Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { useTracker } from 'meteor/react-meteor-data';
+import { Meteor } from 'meteor/meteor';
+import { Facilities } from '../../api/facilities/Facilities';
 
+// eslint-disable-next-line no-unused-vars
 const defaultFacilities = [
   { name: 'Fresenius Medical Care - Lanai Community Dialysis Center', location: '628 7th Street Lanai City, Hawaii 96763', island: 'Lanai', services: 'todo', insurance: 'todo', type: 'Dialysis center', phone: '1-808-565-9650' },
   { name: 'Liberty Dialysis - Hawaii LLC - Ala Moana Dialysis Facility', location: '500 Ala Moana Boulevard, Suite 7302 Honolulu, Hawaii 96813', island: 'Oahu', services: 'todo', insurance: 'todo', type: 'Dialysis center', phone: '(808) 245-6032' },
@@ -8,8 +12,20 @@ const defaultFacilities = [
 ];
 
 const Search = () => {
+  const { ready, facilities } = useTracker(() => {
+    // Note that this subscription will get cleaned up
+    const subscription = Meteor.subscribe(Facilities.userPublicationName);
+    // Determine if the subscription is ready
+    const rdy = subscription.ready();
+    // Get the Contact documents
+    const facilityItems = Facilities.collection.find({}).fetch();
+    return {
+      facilities: facilityItems,
+      ready: rdy,
+    };
+  }, []);
   const [filters, setFilters] = useState({ name: '', location: '', island: '', services: '', insurance: '', type: '', phone: '', owner: '' });
-  const [data, setData] = useState(defaultFacilities);
+  const [data, setData] = useState(facilities);
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
@@ -17,7 +33,7 @@ const Search = () => {
   };
 
   const applyFilters = () => {
-    let filteredData = defaultFacilities;
+    let filteredData = facilities;
 
     Object.keys(filters).forEach(key => {
       if (filters[key]) {
@@ -36,7 +52,7 @@ const Search = () => {
     document.getElementById('kauai-radio').checked = false;
     document.getElementById('lanai-radio').checked = false;
     document.getElementById('molokai-radio').checked = false;
-    setData(defaultFacilities);
+    setData(facilities);
   };
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
@@ -44,7 +60,7 @@ const Search = () => {
     }
   };
 
-  return (
+  return (ready ? (
     <Container className="fade-in">
       <Form>
         <Row>
@@ -209,7 +225,7 @@ const Search = () => {
         ))}
       </Row>
     </Container>
-  );
+  ) : <div>Loading...</div>);
 };
 
 export default Search;
