@@ -13,12 +13,13 @@ class FacilitiesCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       name: String,
-      location: String,
+      address: String,
       island: String,
       services: String,
-      insurance: String,
       type: String,
+      website: String,
       phone: String,
+      insurance: String,
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
