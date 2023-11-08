@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 const defaultFacilities = [
@@ -8,6 +8,12 @@ const defaultFacilities = [
 ];
 
 const Search = () => {
+  useEffect(() => {
+    // This code will run after the component has mounted
+    const body = document.body;
+    body.style.background = 'url("https://assets.editorial.aetnd.com/uploads/2009/12/gettyimages-1352563243.jpg") center center/cover no-repeat';
+  }, []);
+
   const [filters, setFilters] = useState({ name: '', location: '', island: '', services: '', insurance: '', type: '', phone: '', owner: '' });
   const [data, setData] = useState(defaultFacilities);
 
