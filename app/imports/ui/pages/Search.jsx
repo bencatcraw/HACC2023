@@ -391,7 +391,7 @@ const Search = () => {
     body.style.background = 'none';
     body.style.backgroundColor = '#98C1D9';
   }, []);
-  const [filters, setFilters] = useState({ name: '', location: '', island: '', services: '', insurance: '', type: '', phone: '', owner: '' });
+  const [filters, setFilters] = useState({ name: '', address: '', island: '', services: '', insurance: '', type: '', phone: '', owner: '' });
   const [data, setData] = useState(defaultFacilities);
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
@@ -409,7 +409,6 @@ const Search = () => {
 
     setData(filteredData);
   };
-
   useEffect(() => {
     applyFilters();
   });
