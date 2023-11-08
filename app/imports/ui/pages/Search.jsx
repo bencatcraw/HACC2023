@@ -28,7 +28,7 @@ const Search = () => {
     };
   }, []);
 
-  const [filters, setFilters] = useState({ name: '', location: '', island: '', services: '', insurance: '', type: '', phone: '', owner: '' });
+  const [filters, setFilters] = useState({ name: '', address: '', island: '', services: '', insurance: '', type: '', phone: '', owner: '' });
   const [data, setData] = useState(facilities);
 
   const handleFilterChange = (e) => {
@@ -65,6 +65,9 @@ const Search = () => {
     document.getElementById('clinic-radio').checked = false;
     document.getElementById('hospital-radio').checked = false;
     document.getElementById('rehab-radio').checked = false;
+    document.getElementById('nursing-radio').checked = false;
+    document.getElementById('hospice-radio').checked = false;
+    document.getElementById('dialysis-radio').checked = false;
     setData(facilities);
   };
 
@@ -182,38 +185,37 @@ const Search = () => {
               />
               <Form.Check
                 type="radio"
-                label=""
+                label="Nursing Home"
                 name="type"
-                id="kauai-radio"
-                value="Kauai"
+                id="nursing-radio"
+                value="Nursing"
                 onChange={handleFilterChange}
               />
               <Form.Check
                 type="radio"
-                label=""
+                label="Hospice"
                 name="type"
-                id="lanai-radio"
-                value="Lanai"
+                id="hospice-radio"
+                value="Hospice"
                 onChange={handleFilterChange}
               />
               <Form.Check
                 type="radio"
-                label=""
+                label="Dialysis"
                 name="type"
-                id="molokai-radio"
-                value="molokai"
+                id="dialysis-radio"
+                value="Dialysis"
                 onChange={handleFilterChange}
               />
             </Form.Group>
           </Col>
         </Row>
-        <Button variant="secondary" onClick={applyFilters}>Apply Filters</Button>
         <Button variant="secondary" onClick={resetFilters}>Reset Filters</Button>
       </Form>
       <Row>
         {data.map((item, index) => (
-          <Col key={index} sm={6} md={4} lg={3}>
-            <Card>
+          <Col key={index} sm={6} md={4} lg={6}>
+            <Card className="h-100">
               <Card.Body>
                 <Card.Title>{item.name}</Card.Title>
                 <Card.Text>
