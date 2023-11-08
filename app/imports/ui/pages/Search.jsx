@@ -9,7 +9,8 @@ const Search = () => {
   useEffect(() => {
     // This code will run after the component has mounted
     const body = document.body;
-    body.style.background = 'url("https://assets.editorial.aetnd.com/uploads/2009/12/gettyimages-1352563243.jpg") center center/cover no-repeat';
+    body.style.background = 'none';
+    body.style.backgroundColor = '#98C1D9';
   }, []);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, facilities } = useTracker(() => {
@@ -21,7 +22,6 @@ const Search = () => {
     const rdy = subscription.ready();
     // Get the Stuff documents
     const facilityItems = Facilities.collection.find({}).fetch();
-    console.log('Facilities:', facilityItems);
     return {
       facilities: facilityItems,
       ready: rdy,
@@ -48,6 +48,12 @@ const Search = () => {
     setData(filteredData);
   };
 
+  useEffect(() => {
+    // Apply filters when the data is ready
+    if (ready) {
+      applyFilters();
+    }
+  }, [ready, filters, facilities]);
   const resetFilters = () => {
     setFilters({ name: '', location: '', island: '', services: '', insurance: '', type: '', phone: '' });
     document.getElementById('oahu-radio').checked = false;
@@ -59,11 +65,6 @@ const Search = () => {
     setData(facilities);
   };
 
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      applyFilters();
-    }
-  };
 
   return (ready ? (
     <Container>
@@ -78,7 +79,6 @@ const Search = () => {
                 placeholder="Name"
                 value={filters.name}
                 onChange={handleFilterChange}
-                onKeyPress={handleKeyPress}
               />
               <Form.Control
                 className="mt-2"
@@ -87,7 +87,6 @@ const Search = () => {
                 placeholder="Location"
                 value={filters.location}
                 onChange={handleFilterChange}
-                onKeyPress={handleKeyPress}
               />
               <Form.Control
                 className="mt-2"
@@ -96,7 +95,6 @@ const Search = () => {
                 placeholder="Insurance"
                 value={filters.insurance}
                 onChange={handleFilterChange}
-                onKeyPress={handleKeyPress}
               />
             </Form.Group>
           </Col>
@@ -207,7 +205,6 @@ const Search = () => {
             </Form.Group>
           </Col>
         </Row>
-        <Button variant="primary" onClick={applyFilters}>Apply Filters</Button>
         <Button variant="secondary" onClick={resetFilters}>Reset Filters</Button>
       </Form>
       <Row>
