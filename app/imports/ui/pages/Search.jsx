@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { Card, Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Meteor } from 'meteor/meteor';
+import { useTracker } from 'meteor/react-meteor-data';
+import { Facilities } from '../../api/facilities/Facilities';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const defaultFacilities = [
   { name: 'Fresenius Medical Care - Lanai Community Dialysis Center', location: '628 7th Street Lanai City, Hawaii 96763', island: 'Lanai', services: 'todo', insurance: 'todo', type: 'Dialysis center', phone: '1-808-565-9650' },
@@ -8,6 +12,7 @@ const defaultFacilities = [
 ];
 
 const Search = () => {
+
   const [filters, setFilters] = useState({ name: '', location: '', island: '', services: '', insurance: '', type: '', phone: '', owner: '' });
   const [data, setData] = useState(defaultFacilities);
 
@@ -38,13 +43,31 @@ const Search = () => {
     document.getElementById('molokai-radio').checked = false;
     setData(defaultFacilities);
   };
+
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       applyFilters();
     }
   };
 
-  return (
+  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
+  const { ready, facilities } = useTracker(() => {
+    // Note that this subscription will get cleaned up
+    // when your component is unmounted or deps change.
+    // Get access to Stuff documents.
+    const subscription = Meteor.subscribe(Facilities.userPublicationName);
+    // Determine if the subscription is ready
+    const rdy = subscription.ready();
+    // Get the Stuff documents
+    const facilityItems = Facilities.collection.find({}).fetch();
+    console.log('Facilities:', facilityItems);
+    return {
+      facilities: facilityItems,
+      ready: rdy,
+    };
+  }, []);
+
+  return ready ? (
     <Container>
       <Form>
         <Row>
@@ -208,8 +231,27 @@ const Search = () => {
           </Col>
         ))}
       </Row>
+      <Row>
+        {facilities.map((item, index) => (
+          <Col key={index} sm={6} md={4} lg={3}>
+            <Card>
+              <Card.Body>
+                <Card.Title>{item.name}</Card.Title>
+                <Card.Text>
+                  Location: {item.location}<br />
+                  Island: {item.island}<br />
+                  Services: {item.services}<br />
+                  Insurance: {item.insurance}<br />
+                  Type: {item.type}<br />
+                  Phone: {item.phone}<br />
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
     </Container>
-  );
+  ) : <LoadingSpinner />;
 };
 
 export default Search;
