@@ -66,3 +66,7 @@ ul li {
 body > .skiptranslate {
   display: none;
 }
+
+.search-bg {
+  background-image: url("https://htmlcolorcodes.com/assets/images/colors/baby-blue-color-solid-background-1920x1080.png");
+}
