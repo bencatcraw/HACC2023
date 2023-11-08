@@ -14,7 +14,7 @@ body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
   background-image: url("https://assets.editorial.aetnd.com/uploads/2009/12/gettyimages-1352563243.jpg");
   background-size: cover;
-  top: 0px !important;
+  top: 0 !important;
 }
 
 .landing-button{
@@ -40,12 +40,27 @@ body {
   padding-bottom: 20px;
 }
 
+ul li {
+  list-style-type: disc;
+  list-style-image: none;
+  list-style-position: inside;
+  color: white;
+}
+
 .facilities {
-  background-image: none !important;
+  background-image: url("https://htmlcolorcodes.com/assets/images/colors/baby-blue-color-solid-background-1920x1080.png");
 }
 
 .facilities a {
   color: white;
+}
+
+.facilities p {
+  color: white;
+}
+
+.facilities p a {
+  color: blue;
 }
 
 body > .skiptranslate {
