@@ -62,6 +62,9 @@ const Search = () => {
     document.getElementById('kauai-radio').checked = false;
     document.getElementById('lanai-radio').checked = false;
     document.getElementById('molokai-radio').checked = false;
+    document.getElementById('clinic-radio').checked = false;
+    document.getElementById('hospital-radio').checked = false;
+    document.getElementById('rehab-radio').checked = false;
     setData(facilities);
   };
 
@@ -152,51 +155,51 @@ const Search = () => {
           </Col>
           <Col>
             <Form.Group>
-              <h1>Type</h1>
+              <h1>Facility Type</h1>
               <Form.Check
                 type="radio"
-                label="Oahu"
-                name="island"
-                id="oahu-radio"
-                value="Oahu"
+                label="Clinic"
+                name="type"
+                id="clinic-radio"
+                value="Clinic"
                 onChange={handleFilterChange}
               />
               <Form.Check
                 type="radio"
-                label="Hawai'i"
-                name="island"
-                id="hawaii-radio"
-                value="hawaii"
+                label="Hospital"
+                name="type"
+                id="hospital-radio"
+                value="Hospital"
                 onChange={handleFilterChange}
               />
               <Form.Check
                 type="radio"
-                label="Maui"
-                name="island"
-                id="maui-radio"
-                value="Maui"
+                label="Rehab Centre"
+                name="type"
+                id="rehab-radio"
+                value="Rehab Centre"
                 onChange={handleFilterChange}
               />
               <Form.Check
                 type="radio"
-                label="Kauai"
-                name="island"
+                label=""
+                name="type"
                 id="kauai-radio"
                 value="Kauai"
                 onChange={handleFilterChange}
               />
               <Form.Check
                 type="radio"
-                label="Lanai"
-                name="island"
+                label=""
+                name="type"
                 id="lanai-radio"
                 value="Lanai"
                 onChange={handleFilterChange}
               />
               <Form.Check
                 type="radio"
-                label="Moloka'i"
-                name="island"
+                label=""
+                name="type"
                 id="molokai-radio"
                 value="molokai"
                 onChange={handleFilterChange}
@@ -204,6 +207,7 @@ const Search = () => {
             </Form.Group>
           </Col>
         </Row>
+        <Button variant="secondary" onClick={applyFilters}>Apply Filters</Button>
         <Button variant="secondary" onClick={resetFilters}>Reset Filters</Button>
       </Form>
       <Row>
