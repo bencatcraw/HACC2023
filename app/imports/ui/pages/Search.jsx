@@ -65,7 +65,6 @@ const Search = () => {
     setData(facilities);
   };
 
-
   return (ready ? (
     <Container>
       <Form>
@@ -83,9 +82,9 @@ const Search = () => {
               <Form.Control
                 className="mt-2"
                 type="text"
-                name="location"
-                placeholder="Location"
-                value={filters.location}
+                name="services"
+                placeholder="Services"
+                value={filters.services}
                 onChange={handleFilterChange}
               />
               <Form.Control
@@ -153,7 +152,7 @@ const Search = () => {
           </Col>
           <Col>
             <Form.Group>
-              <h1>Services</h1>
+              <h1>Type</h1>
               <Form.Check
                 type="radio"
                 label="Oahu"
@@ -214,7 +213,7 @@ const Search = () => {
               <Card.Body>
                 <Card.Title>{item.name}</Card.Title>
                 <Card.Text>
-                  Location: {item.location}<br />
+                  Address: {item.address}<br />
                   Island: {item.island}<br />
                   Services: {item.services}<br />
                   Insurance: {item.insurance}<br />
