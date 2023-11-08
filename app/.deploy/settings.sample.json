@@ -1,18 +1,36 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
-  ],
-
-  "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+    {
+      "email": "admin@foo.com",
+      "password": "changeme",
+      "role": "admin"
+    },
+    {
+      "email": "john@foo.com",
+      "password": "changeme"
+    }
   ],
 
   "monti": {
     "appId": "changeme",
     "appSecret": "changeme"
-  }
+  },
+
+"defaultFacilities": [
+{ "name": "Castle Health Clinic of Laie", "address": "55-510 Kamehameha Highway, Suite 5 Laie, Hawaii 96762", "island": "Oahu", "services": "Medicare", "type": "Clinic", "website": "https://carelistings.com/rural-health-centers/laie-hi/castle-health-clinic-of-laie/5ace880c93efd2372f97b93a", "phone": "(808) 263-5142", "insurance": "idk" },
+{ "name": "East Hawaii Health Clinic at 1190 Waianuenue", "address": "1190 Waianuenue Avenue, First Floor Hilo, Hawaii 96720", "island": "Hawaii", "services": "Medicare", "type": "Clinic", "website": "https://www.easthawaiihealthclinics.org/primary-care-1190/", "phone": "(808) 932-4215", "insurance": "idk" },
+{ "name": "HHSC-KAUAI REGION CLINICS SPECIALTY CLINIC AT KALAHEO", "address": "2469 Puu Road, Suite C Kalaheo, Hawaii 96741-8509", "island": "Kauai", "services": "Pediatric or Obstetric Care", "type": "Clinic", "website": "https://kauai.hhsc.org/facilities/the-specialty-clinic-at-kalaheo/", "phone": "(808) 378-4557", "insurance": "idk" },
+{ "name": "Kihei Clinic", "address": "1279 South Kihei Road, Suite 120 Kihei, Hawaii 96753", "island": "Maui", "services": "Same Day Care, Laboratory, Lifestyle Medicine Programs, Medication Counseling, Optical Dispensing, Pediatrics, Pharmacy, Physical Therapy", "type": "Clinic", "website": "https://healthy.kaiserpermanente.org/hawaii/facilities/kaiser-permanente-kihei-clinic-100440", "phone": "(808) 243-6000", "insurance": "HMO, Senior Advantage, Medicaid(QUEST)" },
+{ "name": "Molokai General Hospital Rural Health Clinic", "address": "280 Home Olu Place Kaunakakai, Hawaii  96748", "island": "Molokai", "services": "Women's Health, Primary Care, Emergency Services, Radiology, Outpatient Chemotherapy, Physical Therapy, Blood Banking Lab, X-rays and Imaging", "type": "Clinic", "website": "https://www.queens.org/locations/hospitals/molokai/", "phone": "(808) 553-5331", "insurance": "Aetna, HMA, HMAA, HMSA, MDX, Medicare, UHA" },
+{ "name": "ALOHA NURSING & REHAB CENTRE", "address": "45-545 Kamehameha Highway Kaneohe, Hawaii  96744", "island": "Oahu", "services": "Skilled Nursing Care, Rehabilitation, Long Term Care, Comfort Care, Respite Care", "type": "Rehab Centre, Nursing Home", "website": "https://www.alohanursing.com//", "phone": "(808) 247-2220", "insurance": "idk" },
+{ "name": "ANN PEARL NURSING FACILITY", "address": "45-181 Waikalua Road Kaneohe, Hawaii   96744", "island": "Oahu", "services": "Memory Care, Rehabilitation, Long Term Care, Home Health, Adult Day Health, Care Management", "type": "Rehab Centre, Nursing Home", "website": "https://www.ohanapacific.com/ann-pearl", "phone": "(808) 247-8558", "insurance": "Medicare, Medicaid" },
+{ "name": "HALE HO'OLA HAMAKUA", "address": "45-547 Plumeria Street Honokaa, Hawaii  96727", "island": "Hawaii", "services": "Rehabilitation, Long Term Care", "type": "Rehab Centre, Nursing Home", "website": "https://www.halehoolahamakua.org/", "phone": "(808) 932-4100", "insurance": "idk" },
+{ "name": "HALE KUPUNA HERITAGE HOME, LLC", "address": "4297 A Omao Road Koloa, Hawaii  96756", "island": "Kauai", "services": "Memory Care, Rehabilitation, Long Term Care, Home Health, Adult Day Health, Care Management", "type": "Rehab Centre, Nursing Home", "website": "https://www.ohanapacific.com/hale-kupuna-rehab-nursing", "phone": "(808) 742-7591", "insurance": "Medicare, Medicaid" },
+{ "name": "THE CARE CENTER OF HONOLULU", "address": "1900 Bachelot Street Honolulu, Hawaii  96817", "island": "Oahu", "services": "Respiratory Care, Rehabilitation, Skilled Nursing Services", "type": "Rehab Centre, Nursing Home", "website": "https://www.ccoh.us/", "phone": "(808) 531-5302", "insurance": "Medicare, Medicaid" },
+{ "name": "ALOHA MOBILE IMAGING", "address": "403 Kawaihae Street Honolulu, Hawaii  96825", "island": "Oahu", "services": "Mobile X-ray Services, Mobile Ultrasound Imaging Services, Professional Radiology Interpretation", "type": "X-ray Clinic", "website": "https://pacificmobileimaging.com/", "phone": "(808) 271-5691", "insurance": "HMO, Senior Advantage, Medicaid(QUEST)" },
+{ "name": "SALVATION ARMY ADULT DAY HEALTH SERVICES", "address": "296 North Vineyard Boulevard Honolulu, Hawaii 96817", "island": "Oahu", "services": "Activities, Exercise Program, Socialization", "type": "Adult Day Health Center", "website": "https://hawaii.salvationarmy.org/hawaii_2/adhs/", "phone": "(808) 521-6551", "insurance": "Medicaid(QUEST)" },
+{ "name": "YUKIO OKUTSU STATE VETERANS HOME", "address": "1180 Waianuenue Avenue Hilo, Hawaii 96720", "island": "Hawaii", "services": "Respite Care, Hospice, 24-hr Skilled Nursing", "type": ""}
+  ]
 }
+
+
