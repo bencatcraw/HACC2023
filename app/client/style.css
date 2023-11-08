@@ -16,6 +16,7 @@ body {
   background-size: cover;
   top: 0px !important;
 }
+
 .landing-button{
   background-color: #98C1D9 !important;
   border-color: #98C1D9 !important;
@@ -39,8 +40,12 @@ body {
   padding-bottom: 20px;
 }
 
-.all-facilities-page {
-  background-color: lightblue;
+.facilities {
+  background-image: none !important;
+}
+
+.facilities a {
+  color: white;
 }
 
 body > .skiptranslate {
