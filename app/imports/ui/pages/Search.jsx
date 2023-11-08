@@ -45,7 +45,7 @@ const Search = () => {
   };
 
   return (
-    <Container>
+    <Container className="fade-in">
       <Form>
         <Row>
           <Col>
