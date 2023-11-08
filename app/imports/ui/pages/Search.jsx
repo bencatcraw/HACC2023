@@ -77,7 +77,7 @@ const Search = () => {
         <Row>
           <Col>
             <Form.Group>
-              <h1>Search Page</h1>
+              <h1 className="text-center">Search Page</h1>
               <Form.Control
                 type="text"
                 name="name"
@@ -105,7 +105,7 @@ const Search = () => {
           </Col>
           <Col>
             <Form.Group>
-              <h1>Island</h1>
+              <h1 className="text-center">Island</h1>
               <Form.Check
                 type="radio"
                 label="Oahu"
@@ -158,7 +158,7 @@ const Search = () => {
           </Col>
           <Col>
             <Form.Group>
-              <h1>Facility Type</h1>
+              <h1 className="text-center">Facility Type</h1>
               <Form.Check
                 type="radio"
                 label="Clinic"
