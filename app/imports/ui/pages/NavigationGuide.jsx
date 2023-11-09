@@ -2,13 +2,13 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 
 const NavigationGuide = () => {
-  const searchImageSrc = `${process.env.PUBLIC_URL}/images/img.png`;
-  const filtersImageSrc = '/filters_image.png'; // Replace with the actual path to your filters image
-  const contactImageSrc = '/contact_image.png'; // Replace with the actual path to your contact image
-  const facilitiesImageSrc = '/facilities_image.png'; // Replace with the actual path to your facilities image
+  const searchImageSrc = 'https://raw.githubusercontent.com/aidenlkw/publicimages/5a5ec59e703348c768035e120c0a00f3fb4ccbd2/img.png';
+  const filtersImageSrc = 'https://raw.githubusercontent.com/aidenlkw/publicimages/d34d89a78b6ec591371036e4ed8202047c1ab1ef/Filters.png';
+  const contactImageSrc = 'https://raw.githubusercontent.com/aidenlkw/publicimages/2185db3e6ff9c668ac11f0972cc96645f88631c8/Contactus.png';
+  const facilitiesImageSrc = 'https://raw.githubusercontent.com/aidenlkw/publicimages/0ae5fd67597273f790ac5cc637318a6dd138a543/All.png';
 
   return (
-    <Container className="mt-5 text-white">
+    <Container className="mt-5 text-black">
       <h1 className="text-center mb-4">Welcome to Our Site Navigation Guide</h1>
       <p className="text-center">
         We have made it easy for you to navigate through our site. Below are key actions and sections to help you get started.
@@ -46,7 +46,7 @@ const NavigationGuide = () => {
         </div>
       </section>
 
-      <section className="mt-4">
+      <section className="mt-4 mb-5">
         <h2>Explore All Facilities</h2>
         <p>
           Discover all our facilities by exploring the dedicated section. Click on the button next to the Search button to see all available facilities.

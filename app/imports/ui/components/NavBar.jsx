@@ -22,6 +22,9 @@ const NavBar = () => (
           <Nav.Link id="all-facilities-page" as={NavLink} to="/facilities">
             <span className="text-white">All Facilities</span>
           </Nav.Link>
+          <Nav.Link id="navguide" as={NavLink} to="/navguide">
+            <span className="text-white">Help</span>
+          </Nav.Link>
         </Nav>
         <Nav className="justify-content-end">
           <div id="google_translate_element" />
