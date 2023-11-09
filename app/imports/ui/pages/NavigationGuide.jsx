@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 
 const NavigationGuide = () => {
-  const searchImageSrc = '/search_image.png'; // Replace with the actual path to your search image
+  const searchImageSrc = `${process.env.PUBLIC_URL}/images/img.png`;
   const filtersImageSrc = '/filters_image.png'; // Replace with the actual path to your filters image
   const contactImageSrc = '/contact_image.png'; // Replace with the actual path to your contact image
   const facilitiesImageSrc = '/facilities_image.png'; // Replace with the actual path to your facilities image
