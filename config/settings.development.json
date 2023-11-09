@@ -15,21 +15,21 @@
       "name": "Castle Health Clinic of Laie",
       "address": "55-510 Kamehameha Highway, Suite 5 Laie, Hawaii 96762",
       "island": "Oahu",
-      "services": "Medicare",
+      "services": "Cardiology, Pediatrics, OBGYN, Sports Medicine",
       "type": "Clinic",
       "website": "https://carelistings.com/rural-health-centers/laie-hi/castle-health-clinic-of-laie/5ace880c93efd2372f97b93a",
       "phone": "(808) 263-5142",
-      "insurance": "idk"
+      "insurance": "Medicare"
     },
     {
       "name": "East Hawaii Health Clinic at 1190 Waianuenue",
       "address": "1190 Waianuenue Avenue, First Floor Hilo, Hawaii 96720",
       "island": "Hawaii",
-      "services": "Medicare",
+      "services": "Pediatrics, Behavioral Care, Primary Care",
       "type": "Clinic",
       "website": "https://www.easthawaiihealthclinics.org/primary-care-1190/",
       "phone": "(808) 932-4215",
-      "insurance": "idk"
+      "insurance": "Medicare"
     },
     {
       "name": "HHSC-KAUAI REGION CLINICS SPECIALTY CLINIC AT KALAHEO",
@@ -39,7 +39,7 @@
       "type": "Clinic",
       "website": "https://kauai.hhsc.org/facilities/the-specialty-clinic-at-kalaheo/",
       "phone": "(808) 378-4557",
-      "insurance": "idk"
+      "insurance": "Medicare"
     },
     {
       "name": "Kihei Clinic",
