@@ -12,7 +12,6 @@
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
-  background: url("https://assets.editorial.aetnd.com/uploads/2009/12/gettyimages-1352563243.jpg") center center/cover no-repeat;
   top: 0 !important;
 }
 

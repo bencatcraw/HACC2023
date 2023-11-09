@@ -2,6 +2,9 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 
 const NavigationGuide = () => {
+  const body = document.body;
+  body.style.background = 'none';
+  body.style.backgroundColor = '#98C1D9';
   const searchImageSrc = 'https://raw.githubusercontent.com/aidenlkw/publicimages/5a5ec59e703348c768035e120c0a00f3fb4ccbd2/img.png';
   const filtersImageSrc = 'https://raw.githubusercontent.com/aidenlkw/publicimages/d34d89a78b6ec591371036e4ed8202047c1ab1ef/Filters.png';
   const contactImageSrc = 'https://raw.githubusercontent.com/aidenlkw/publicimages/2185db3e6ff9c668ac11f0972cc96645f88631c8/Contactus.png';

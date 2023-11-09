@@ -6,12 +6,9 @@ import { Facilities } from '../../api/facilities/Facilities';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 const Search = () => {
-  useEffect(() => {
-    // This code will run after the component has mounted
-    const body = document.body;
-    body.style.background = 'none';
-    body.style.backgroundColor = '#98C1D9';
-  }, []);
+  const body = document.body;
+  body.style.background = 'none';
+  body.style.backgroundColor = '#98C1D9';
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, facilities } = useTracker(() => {
     // Note that this subscription will get cleaned up
