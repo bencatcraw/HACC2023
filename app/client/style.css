@@ -12,9 +12,22 @@
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
-  background-image: url("https://assets.editorial.aetnd.com/uploads/2009/12/gettyimages-1352563243.jpg");
-  background-size: cover;
+  background: url("https://assets.editorial.aetnd.com/uploads/2009/12/gettyimages-1352563243.jpg") center center/cover no-repeat;
   top: 0 !important;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .landing-button{
@@ -40,33 +53,10 @@ body {
   padding-bottom: 20px;
 }
 
-ul li {
-  list-style-type: disc;
-  list-style-image: none;
-  list-style-position: inside;
-  color: white;
-}
-
-.facilities {
-  background-image: url("https://htmlcolorcodes.com/assets/images/colors/baby-blue-color-solid-background-1920x1080.png");
-}
-
-.facilities a {
-  color: white;
-}
-
-.facilities p {
-  color: white;
-}
-
-.facilities p a {
-  color: blue;
+.all-facilities-page {
+  background-color: lightblue;
 }
 
 body > .skiptranslate {
   display: none;
-}
-
-.search-bg {
-  background-image: url("https://htmlcolorcodes.com/assets/images/colors/baby-blue-color-solid-background-1920x1080.png");
 }

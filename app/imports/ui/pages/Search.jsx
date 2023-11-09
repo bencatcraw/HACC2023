@@ -1,15 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, Container, Row, Col, Form, Button } from 'react-bootstrap';
-
-const defaultFacilities = [
-  { name: 'Fresenius Medical Care - Lanai Community Dialysis Center', location: '628 7th Street Lanai City, Hawaii 96763', island: 'Lanai', services: 'todo', insurance: 'todo', type: 'Dialysis center', phone: '1-808-565-9650' },
-  { name: 'Liberty Dialysis - Hawaii LLC - Ala Moana Dialysis Facility', location: '500 Ala Moana Boulevard, Suite 7302 Honolulu, Hawaii 96813', island: 'Oahu', services: 'todo', insurance: 'todo', type: 'Dialysis center', phone: '(808) 245-6032' },
-  // Add more facilities here
-];
+import { Meteor } from 'meteor/meteor';
+import { useTracker } from 'meteor/react-meteor-data';
+import { Facilities } from '../../api/facilities/Facilities';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const Search = () => {
-  const [filters, setFilters] = useState({ name: '', location: '', island: '', services: '', insurance: '', type: '', phone: '', owner: '' });
-  const [data, setData] = useState(defaultFacilities);
+  useEffect(() => {
+    // This code will run after the component has mounted
+    const body = document.body;
+    body.style.background = 'none';
+    body.style.backgroundColor = '#98C1D9';
+  }, []);
+  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
+  const { ready, facilities } = useTracker(() => {
+    // Note that this subscription will get cleaned up
+    // when your component is unmounted or deps change.
+    // Get access to Stuff documents.
+    const subscription = Meteor.subscribe(Facilities.userPublicationName);
+    // Determine if the subscription is ready
+    const rdy = subscription.ready();
+    // Get the Stuff documents
+    const facilityItems = Facilities.collection.find({}).fetch();
+    return {
+      facilities: facilityItems,
+      ready: rdy,
+    };
+  }, []);
+
+  const [filters, setFilters] = useState({ name: '', address: '', island: '', services: '', insurance: '', type: '', phone: '', owner: '' });
+  const [data, setData] = useState(facilities);
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
@@ -17,7 +37,7 @@ const Search = () => {
   };
 
   const applyFilters = () => {
-    let filteredData = defaultFacilities;
+    let filteredData = facilities;
 
     Object.keys(filters).forEach(key => {
       if (filters[key]) {
@@ -28,6 +48,12 @@ const Search = () => {
     setData(filteredData);
   };
 
+  useEffect(() => {
+    // Apply filters when the data is ready
+    if (ready) {
+      applyFilters();
+    }
+  }, [ready, filters, facilities]);
   const resetFilters = () => {
     setFilters({ name: '', location: '', island: '', services: '', insurance: '', type: '', phone: '' });
     document.getElementById('oahu-radio').checked = false;
@@ -36,182 +62,177 @@ const Search = () => {
     document.getElementById('kauai-radio').checked = false;
     document.getElementById('lanai-radio').checked = false;
     document.getElementById('molokai-radio').checked = false;
-    setData(defaultFacilities);
-  };
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      applyFilters();
-    }
+    document.getElementById('clinic-radio').checked = false;
+    document.getElementById('hospital-radio').checked = false;
+    document.getElementById('rehab-radio').checked = false;
+    document.getElementById('nursing-radio').checked = false;
+    document.getElementById('hospice-radio').checked = false;
+    document.getElementById('dialysis-radio').checked = false;
+    setData(facilities);
   };
 
-  return (
-    <div className="search-bg">
-      <Container>
-        <Form>
-          <Row>
-            <Col>
-              <Form.Group>
-                <h1>Search Page</h1>
-                <Form.Control
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  value={filters.name}
-                  onChange={handleFilterChange}
-                  onKeyPress={handleKeyPress}
-                />
-                <Form.Control
-                  className="mt-2"
-                  type="text"
-                  name="location"
-                  placeholder="Location"
-                  value={filters.location}
-                  onChange={handleFilterChange}
-                  onKeyPress={handleKeyPress}
-                />
-                <Form.Control
-                  className="mt-2"
-                  type="text"
-                  name="insurance"
-                  placeholder="Insurance"
-                  value={filters.insurance}
-                  onChange={handleFilterChange}
-                  onKeyPress={handleKeyPress}
-                />
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group>
-                <h1>Island</h1>
-                <Form.Check
-                  type="radio"
-                  label="Oahu"
-                  name="island"
-                  id="oahu-radio"
-                  value="Oahu"
-                  onChange={handleFilterChange}
-                />
-                <Form.Check
-                  type="radio"
-                  label="Hawai'i"
-                  name="island"
-                  id="hawaii-radio"
-                  value="hawaii"
-                  onChange={handleFilterChange}
-                />
-                <Form.Check
-                  type="radio"
-                  label="Maui"
-                  name="island"
-                  id="maui-radio"
-                  value="Maui"
-                  onChange={handleFilterChange}
-                />
-                <Form.Check
-                  type="radio"
-                  label="Kauai"
-                  name="island"
-                  id="kauai-radio"
-                  value="Kauai"
-                  onChange={handleFilterChange}
-                />
-                <Form.Check
-                  type="radio"
-                  label="Lanai"
-                  name="island"
-                  id="lanai-radio"
-                  value="Lanai"
-                  onChange={handleFilterChange}
-                />
-                <Form.Check
-                  type="radio"
-                  label="Moloka'i"
-                  name="island"
-                  id="molokai-radio"
-                  value="molokai"
-                  onChange={handleFilterChange}
-                />
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group>
-                <h1>Services</h1>
-                <Form.Check
-                  type="radio"
-                  label="Oahu"
-                  name="island"
-                  id="oahu-radio"
-                  value="Oahu"
-                  onChange={handleFilterChange}
-                />
-                <Form.Check
-                  type="radio"
-                  label="Hawai'i"
-                  name="island"
-                  id="hawaii-radio"
-                  value="hawaii"
-                  onChange={handleFilterChange}
-                />
-                <Form.Check
-                  type="radio"
-                  label="Maui"
-                  name="island"
-                  id="maui-radio"
-                  value="Maui"
-                  onChange={handleFilterChange}
-                />
-                <Form.Check
-                  type="radio"
-                  label="Kauai"
-                  name="island"
-                  id="kauai-radio"
-                  value="Kauai"
-                  onChange={handleFilterChange}
-                />
-                <Form.Check
-                  type="radio"
-                  label="Lanai"
-                  name="island"
-                  id="lanai-radio"
-                  value="Lanai"
-                  onChange={handleFilterChange}
-                />
-                <Form.Check
-                  type="radio"
-                  label="Moloka'i"
-                  name="island"
-                  id="molokai-radio"
-                  value="molokai"
-                  onChange={handleFilterChange}
-                />
-              </Form.Group>
-            </Col>
-          </Row>
-          <Button variant="primary" onClick={applyFilters}>Apply Filters</Button>
-          <Button variant="secondary" onClick={resetFilters}>Reset Filters</Button>
-        </Form>
+  return (ready ? (
+    <Container>
+      <Form>
         <Row>
-          {data.map((item, index) => (
-            <Col key={index} sm={6} md={4} lg={3}>
-              <Card>
-                <Card.Body>
-                  <Card.Title>{item.name}</Card.Title>
-                  <Card.Text>
-                    Location: {item.location}<br />
-                    Island: {item.island}<br />
-                    Services: {item.services}<br />
-                    Insurance: {item.insurance}<br />
-                    Type: {item.type}<br />
-                    Phone: {item.phone}<br />
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
+          <Col>
+            <Form.Group>
+              <h1 className="text-center">Search Page</h1>
+              <Form.Control
+                type="text"
+                name="name"
+                placeholder="Name"
+                value={filters.name}
+                onChange={handleFilterChange}
+              />
+              <Form.Control
+                className="mt-2"
+                type="text"
+                name="services"
+                placeholder="Services"
+                value={filters.services}
+                onChange={handleFilterChange}
+              />
+              <Form.Control
+                className="mt-2"
+                type="text"
+                name="insurance"
+                placeholder="Insurance"
+                value={filters.insurance}
+                onChange={handleFilterChange}
+              />
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group>
+              <h1 className="text-center">Island</h1>
+              <Form.Check
+                type="radio"
+                label="Oahu"
+                name="island"
+                id="oahu-radio"
+                value="Oahu"
+                onChange={handleFilterChange}
+              />
+              <Form.Check
+                type="radio"
+                label="Hawai'i"
+                name="island"
+                id="hawaii-radio"
+                value="hawaii"
+                onChange={handleFilterChange}
+              />
+              <Form.Check
+                type="radio"
+                label="Maui"
+                name="island"
+                id="maui-radio"
+                value="Maui"
+                onChange={handleFilterChange}
+              />
+              <Form.Check
+                type="radio"
+                label="Kauai"
+                name="island"
+                id="kauai-radio"
+                value="Kauai"
+                onChange={handleFilterChange}
+              />
+              <Form.Check
+                type="radio"
+                label="Lanai"
+                name="island"
+                id="lanai-radio"
+                value="Lanai"
+                onChange={handleFilterChange}
+              />
+              <Form.Check
+                type="radio"
+                label="Moloka'i"
+                name="island"
+                id="molokai-radio"
+                value="molokai"
+                onChange={handleFilterChange}
+              />
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group>
+              <h1 className="text-center">Facility Type</h1>
+              <Form.Check
+                type="radio"
+                label="Clinic"
+                name="type"
+                id="clinic-radio"
+                value="Clinic"
+                onChange={handleFilterChange}
+              />
+              <Form.Check
+                type="radio"
+                label="Hospital"
+                name="type"
+                id="hospital-radio"
+                value="Hospital"
+                onChange={handleFilterChange}
+              />
+              <Form.Check
+                type="radio"
+                label="Rehab Centre"
+                name="type"
+                id="rehab-radio"
+                value="Rehab Centre"
+                onChange={handleFilterChange}
+              />
+              <Form.Check
+                type="radio"
+                label="Nursing Home"
+                name="type"
+                id="nursing-radio"
+                value="Nursing"
+                onChange={handleFilterChange}
+              />
+              <Form.Check
+                type="radio"
+                label="Hospice"
+                name="type"
+                id="hospice-radio"
+                value="Hospice"
+                onChange={handleFilterChange}
+              />
+              <Form.Check
+                type="radio"
+                label="Dialysis"
+                name="type"
+                id="dialysis-radio"
+                value="Dialysis"
+                onChange={handleFilterChange}
+              />
+            </Form.Group>
+          </Col>
         </Row>
-      </Container>
-    </div>
-  );
+        <Button variant="secondary" onClick={resetFilters}>Reset Filters</Button>
+      </Form>
+      <Row>
+        {data.map((item, index) => (
+          <Col key={index} sm={6} md={4} lg={6}>
+            <Card className="h-100">
+              <Card.Body>
+                <Card.Title>{item.name}</Card.Title>
+                <Card.Text>
+                  Address: {item.address}<br />
+                  Island: {item.island}<br />
+                  Services: {item.services}<br />
+                  Insurance: {item.insurance}<br />
+                  Type: {item.type}<br />
+                  Phone: {item.phone}<br />
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Container>
+  ) : <LoadingSpinner />);
 };
 
 export default Search;

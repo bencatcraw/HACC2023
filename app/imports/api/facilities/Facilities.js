@@ -16,8 +16,8 @@ class FacilitiesCollection {
       address: String,
       island: String,
       services: String,
-      type: String,
       website: String,
+      type: String,
       phone: String,
       insurance: String,
     });
