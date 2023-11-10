@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Image } from 'react-bootstrap';
 
-/* A simple static component to render some text for the landing page. */
 const AllFacilities = () => {
-  // Set the background and body style
-  document.body.style.background = 'none';
-  document.body.style.backgroundColor = '#FFFFFF';
+  useEffect(() => {
+    // Hide the specific element by setting its display to 'none'
+    const googleTranslatePopup = document.querySelector('.VIpgJd-ZVi9od-aZ2wEe-wOHMyf');
+    if (googleTranslatePopup) {
+      googleTranslatePopup.style.display = 'none';
+    }
+  }, []);
 
   return (
-    <Container id="all-facilities-page" fluid className="py-3 facilities">
+    <Container fluid className="all-facilities-page py-3 facilities">
       <div className="text-center">
-        <Image src="https://thumbs.dreamstime.com/b/medical-team-isolated-white-set-hospital-staff-doctors-nurses-surgeon-healthcare-concept-cartoon-83640952.jpg" height="200px" />
+        <Image
+          src="https://thumbs.dreamstime.com/b/medical-team-isolated-white-set-hospital-staff-doctors-nurses-surgeon-healthcare-concept-cartoon-83640952.jpg"
+          height="200px"
+          alt="Medical Team"
+        />
       </div>
-      <Container color="#97C1D8">
+      <Container>
         <ul className="justify-content-start">
           <li className="fs-4 py-1">
             <a href="https://carelistings.com/rural-health-centers/laie-hi/castle-health-clinic-of-laie/5ace880c93efd2372f97b93a">
@@ -200,7 +207,7 @@ const AllFacilities = () => {
             </a>
           </li>
         </ul>
-        <p>*See <a href="https://health.hawaii.gov/ohca/medicare-facilities/" className="facilities-link">here</a> for more facilites</p>
+        <p>*See <a href="https://health.hawaii.gov/ohca/medicare-facilities/" className="facilities-link">here</a> for more facilities</p>
       </Container>
     </Container>
   );

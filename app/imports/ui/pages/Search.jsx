@@ -25,6 +25,15 @@ const Search = () => {
     };
   }, []);
 
+  useEffect(() => {
+    // Hide the specific element by setting its display to 'none'
+    const googleTranslatePopup = document.querySelector('.VIpgJd-ZVi9od-aZ2wEe-wOHMyf');
+    if (googleTranslatePopup) {
+      googleTranslatePopup.style.display = 'none';
+    }
+    console.log('useEffect was used');
+  }, []);
+
   const [filters, setFilters] = useState({ name: '', address: '', island: '', services: '', insurance: '', type: '', phone: '', owner: '' });
   const [data, setData] = useState(facilities);
 
@@ -207,23 +216,25 @@ const Search = () => {
             </Form.Group>
           </Col>
         </Row>
-        <Button variant="secondary" onClick={resetFilters}>Reset Filters</Button>
+        <Button variant="secondary" className="mt-3" onClick={resetFilters}>Reset Filters</Button>
       </Form>
-      <Row>
+      <Row className="mt-4">
         {data.map((item, index) => (
-          <Col key={index} sm={6} md={4} lg={6}>
-            <Card className="h-100">
-              <Card.Body>
-                <Card.Title>{item.name}</Card.Title>
-                <Card.Text>
-                  Address: {item.address}<br />
-                  Island: {item.island}<br />
-                  Services: {item.services}<br />
-                  Insurance: {item.insurance}<br />
-                  Type: {item.type}<br />
-                  Phone: {item.phone}<br />
-                </Card.Text>
-              </Card.Body>
+          <Col key={index} sm={6} md={4} lg={6} className="mb-4">
+            <Card className="h-100 shadow grow-on-hover">
+              <Card.Link href={item.website} target="_blank" rel="noopener noreferrer">
+                <Card.Body style={{ color: 'black' }}>
+                  <Card.Title className="h5">{item.name}</Card.Title>
+                  <Card.Text>
+                    Address: {item.address}<br />
+                    Island: {item.island}<br />
+                    Services: {item.services}<br />
+                    Insurance: {item.insurance}<br />
+                    Type: {item.type}<br />
+                    Phone: {item.phone}<br />
+                  </Card.Text>
+                </Card.Body>
+              </Card.Link>
             </Card>
           </Col>
         ))}

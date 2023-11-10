@@ -55,3 +55,56 @@ body {
 body > .skiptranslate {
   display: none;
 }
+
+.VIpgJd-ZVi9od-aZ2wEe-OiiCO {
+  display: none;
+}
+
+.VIpgJd-ZVi9od-aZ2wEe-OiiCO-ti6hGc {
+  display: none;
+}
+.IpgJd-ZVi9od-aZ2wEe-wOHMyf {
+  display: none;
+}
+
+.all-facilities-page {
+  background-color: #ffffff;
+}
+
+.text-center {
+  margin-bottom: 20px;
+}
+.facility-list a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.facility-list a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+/* ... (existing styles) */
+
+.facilities-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.facilities-link:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+.grow-on-hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.grow-on-hover:hover {
+  transform: scale(1.025);
+}
+
+.card a {
+  text-decoration: none;
+}
