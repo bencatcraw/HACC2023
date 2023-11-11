@@ -224,12 +224,16 @@ const Search = () => {
             <Card className="h-100 shadow grow-on-hover">
               <Card.Link href={item.website} target="_blank" rel="noopener noreferrer">
                 <Card.Body style={{ color: 'black' }}>
-                  <Card.Title className="h5">{item.name}</Card.Title>
+                  <span translate="no">
+                    <Card.Title className="h5">{item.name}</Card.Title>
+                  </span>
                   <Card.Text>
                     Address: {item.address}<br />
                     Island: {item.island}<br />
-                    Services: {item.services}<br />
-                    Insurance: {item.insurance}<br />
+                    <span translate="no">
+                      Services: {item.services}<br />
+                      Insurance: {item.insurance}<br />
+                    </span>
                     Type: {item.type}<br />
                     Phone: {item.phone}<br />
                   </Card.Text>
