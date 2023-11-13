@@ -9,21 +9,25 @@ const Footer = () => (
         <Col />
         <Col className="text-center text-white">
           <p className="fs-5 text-decoration-underline">About Us!</p>
-          Tyler Hawaii
-          <br />
-          Honolulu, HI
-          {' '}
-          <br />
-          <a href="https://tylerhawaii.com/" className="text-white">
-            tylerhawaii.com
-          </a>
+          <span translate="no">
+            Tyler Hawaii
+            <br />
+            Honolulu, HI
+            {' '}
+            <br />
+            <a href="https://tylerhawaii.com/" className="text-white">
+              tylerhawaii.com
+            </a>
+          </span>
         </Col>
         <Col className="text-center text-white">
           <p className="fs-5 text-decoration-underline">Contact Us!</p>
-          (808) 695-4620
-          <br />
-          201 Merchant Street Suite 1805 Honolulu, HI 96813
-          {' '}
+          <span translate="no">
+            (808) 695-4620
+            <br />
+            201 Merchant Street Suite 1805 Honolulu, HI 96813
+            {' '}
+          </span>
         </Col>
         <Col />
       </Row>

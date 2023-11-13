@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 
 const NavigationGuide = () => {
+  useEffect(() => {
+    // Hide the specific element by setting its display to 'none'
+    const googleTranslatePopup = document.querySelector('.VIpgJd-ZVi9od-aZ2wEe-wOHMyf');
+    if (googleTranslatePopup) {
+      googleTranslatePopup.style.display = 'none';
+    }
+    console.log('useEffect was used');
+  }, []);
   const body = document.body;
   body.style.background = 'none';
   body.style.backgroundColor = '#98C1D9';
