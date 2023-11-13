@@ -64,7 +64,7 @@ The following sections describe the major features of this application.
 
 When you retrieve the app at http://localhost:3000, this is what should be displayed:
 
-![](https://github.com/ics-software-engineering/meteor-application-template-react/raw/main/doc/landing-page.png)
+
 
 The next step is to click the Get Started button or navigate using the navbar
 
@@ -72,17 +72,17 @@ The next step is to click the Get Started button or navigate using the navbar
 
 Clicking on the Search Page through the navbar or the Get Started button on the landing page will show you the search page which will allow you to search for facilities using filters
 
-![](https://github.com/ics-software-engineering/meteor-application-template-react/raw/main/doc/signin-page.png)
+
 
 #### All Facilities page
 
 This page shows a list of all the facilities for the users to look at
 
-![](https://github.com/ics-software-engineering/meteor-application-template-react/raw/main/doc/register-page.png)
+
 
 #### Help
 
 The Help page explains the app in detail
 
-![](https://github.com/ics-software-engineering/meteor-application-template-react/raw/main/doc/add-stuff-page.png)
+
 
