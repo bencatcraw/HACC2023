@@ -11,7 +11,7 @@ const Landing = () => {
   };
 
   return (
-    <Container fluid className="my-auto text-center">
+    <Container fluid className="my-auto text-center landing">
       <Link to="/search" style={{ textDecoration: 'none' }}>
         <Button size="lg" className="landing-button" style={{ backgroundColor: '#98C1D9' }} onClick={handleZoomClick}>
           Get Started

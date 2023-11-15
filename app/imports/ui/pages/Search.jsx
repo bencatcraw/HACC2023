@@ -31,7 +31,6 @@ const Search = () => {
     if (googleTranslatePopup) {
       googleTranslatePopup.style.display = 'none';
     }
-    console.log('useEffect was used');
   }, []);
 
   const [filters, setFilters] = useState({ name: '', address: '', island: '', services: '', insurance: '', type: '', phone: '', owner: '' });
@@ -78,7 +77,7 @@ const Search = () => {
   };
 
   return (ready ? (
-    <Container>
+    <Container id="search">
       <Form>
         <Row>
           <Col>
