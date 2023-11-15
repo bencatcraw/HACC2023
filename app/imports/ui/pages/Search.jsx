@@ -228,9 +228,9 @@ const Search = () => {
                     <Card.Title className="h5">{item.name}</Card.Title>
                   </span>
                   <Card.Text>
-                    Address: {item.address}<br />
-                    Island: {item.island}<br />
                     <span translate="no">
+                      Address: {item.address}<br />
+                      Island: {item.island}<br />
                       Services: {item.services}<br />
                       Insurance: {item.insurance}<br />
                     </span>
