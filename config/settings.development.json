@@ -69,7 +69,7 @@
       "type": "Rehab Centre, Nursing Home",
       "website": "https://www.alohanursing.com/",
       "phone": "(808) 247-2220",
-      "insurance": "idk"
+      "insurance": "Medicare, Medicade"
     },
     {
       "name": "ANN PEARL NURSING FACILITY",
@@ -89,7 +89,7 @@
       "type": "Rehab Centre, Nursing Home",
       "website": "https://www.halehoolahamakua.org/",
       "phone": "(808) 932-4100",
-      "insurance": "idk"
+      "insurance": "HMO, Medicaid, Senior Advantage"
     },
     {
       "name": "HALE KUPUNA HERITAGE HOME, LLC",
@@ -169,7 +169,7 @@
       "type": "Plastic Surgery Clinic",
       "website": "https://www.drshimching.com/",
       "phone": "(808) 537-9375",
-      "insurance": "idk"
+      "insurance": "HMSA"
     },
     {
       "name": "BIG ISLAND ENDOSCOPY CENTER, LLC",
@@ -189,7 +189,7 @@
       "type": "Dialysis Center",
       "website": "https://www.freseniuskidneycare.com/dialysis-centers/hawaii/2809",
       "phone": "(808) 565-9650",
-      "insurance": "idk"
+      "insurance": "HMO, Medicaid, Senior Advantage"
     },
     {
       "name": "Liberty Dialysis - Hawaii LLC - Ala Moana Dialysis Facility",
@@ -349,7 +349,7 @@
       "type": "Disability Support Clinic",
       "website": "https://www.ori-hawaii.com/",
       "phone": "(808) 622-3929",
-      "insurance": "idk"
+      "insurance": "HMSA"
     },
     {
       "name": "Kula Hospital",
@@ -379,7 +379,7 @@
       "type": "Organ Clinic",
       "website": "https://legacyoflifehawaii.org/",
       "phone": "(808) 599-7630",
-      "insurance": "idk"
+      "insurance": "Medicare"
     },
     {
       "name": "Pacific Mobile Imaging, LLC",
